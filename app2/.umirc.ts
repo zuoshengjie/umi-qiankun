@@ -8,13 +8,15 @@ export default defineConfig({
     { path: '/', component: '@/pages/index' },
   ],
   fastRefresh: {},
-  
   qiankun: {
     master: {
       apps: [{
         name: 'app1',
-        entry: 'http://localhost:7001'
+        entry: process.env.NODE_ENV === 'development'
+          ? '//localhost:7001'
+          : '/app1-history/',
       }]},
     slave: {},
   },
+  publicPath:'/app2-history/',
 });

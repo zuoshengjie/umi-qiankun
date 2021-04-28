@@ -11,4 +11,5 @@ export default defineConfig({
   qiankun: {
     slave: {},
   },
+  publicPath:'/app1-history/',
 });

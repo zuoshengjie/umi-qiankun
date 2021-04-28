@@ -14,15 +14,17 @@ export default defineConfig({
       apps: [
         {
           name: 'app1', // 唯一 id
-          entry: '//localhost:7001', // html entry
-          props: {
-            name12: '1234',
-            age12: 1,
-          },
+          entry: process.env.NODE_ENV === 'development'
+            ? '//localhost:7001'
+            : '/app1-history/',
+          activeRule: '/app1/',
         },
         {
           name: 'app2', // 唯一 id
-          entry: '//localhost:7002', // html entry
+          entry: process.env.NODE_ENV === 'development'
+            ? '//localhost:7002'
+            : '/app2-history/',
+          activeRule: '/app2/',
         },
       ],
     },
